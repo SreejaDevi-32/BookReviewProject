@@ -1,0 +1,44 @@
+package com.BookReviewPla.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+
+import com.BookReviewPla.Service.BookService;
+import com.BookReviewPla.model.Book;
+
+@Controller
+public class BookController {
+	
+	@Autowired
+	private BookService bookService;
+	
+	public ResponseEntity<?> addBook(Book book)
+	{
+		return ResponseEntity.ok()
+				.body(bookService.addBook(book));
+	}
+	
+	public ResponseEntity<?> updateBook(Book updateBook)
+	{
+		return ResponseEntity.ok()
+				.body(bookService.updateBook(updateBook));
+		
+	}
+	
+	public ResponseEntity<String> deleteBook(Long id)
+	{
+		bookService.deleteBook(id);
+		return ResponseEntity.ok()
+				.build();
+		
+	}
+	
+	public ResponseEntity<Book> getBook(Long bookId)
+	{
+		return ResponseEntity.ok()
+				.body(bookService.getBook(bookId));
+	}
+	
+
+}

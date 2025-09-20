@@ -1,0 +1,14 @@
+package com.BookReviewPla.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.BookReviewPla.Service.ReviewService;
+
+public class ReviewController {
+	
+	@Autowired
+	private ReviewService reviewService;
+	
+	
+
+}
